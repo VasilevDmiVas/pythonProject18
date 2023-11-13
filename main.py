@@ -6,6 +6,7 @@ import traceback
 
 
 config = dotenv_values(".env")
+
 connect = psycopg2.connect(
     host=config['HOST'],
     port=config['PORT'],
@@ -15,6 +16,8 @@ connect = psycopg2.connect(
 )
 cursor = connect.cursor()
 app = FastAPI()
+
+
 class vm_get_workers(BaseModel):
     id: int
     firstName: str
